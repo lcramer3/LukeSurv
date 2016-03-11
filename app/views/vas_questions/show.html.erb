@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Prompt:</strong>
+  <%= @vas_question.prompt %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @vas_question.order %>
+</p>
+
+<%= link_to 'Edit', edit_vas_question_path(@vas_question) %> |
+<%= link_to 'Back', vas_questions_path %>

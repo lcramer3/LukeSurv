@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @vas_response.value %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @vas_response.user %>
+</p>
+
+<%= link_to 'Edit', edit_vas_response_path(@vas_response) %> |
+<%= link_to 'Back', vas_responses_path %>

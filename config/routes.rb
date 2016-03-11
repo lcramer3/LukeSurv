@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  resources :food_ranks
+
+  resources :vas_questions
+
+  resources :vas_responses
+
+  resources :users
+
+  resources :foods
+
+  resources :categories
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

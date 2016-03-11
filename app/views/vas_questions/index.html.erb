@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Vas Questions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prompt</th>
+      <th>Order</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vas_questions.each do |vas_question| %>
+      <tr>
+        <td><%= vas_question.prompt %></td>
+        <td><%= vas_question.order %></td>
+        <td><%= link_to 'Show', vas_question %></td>
+        <td><%= link_to 'Edit', edit_vas_question_path(vas_question) %></td>
+        <td><%= link_to 'Destroy', vas_question, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vas question', new_vas_question_path %>
