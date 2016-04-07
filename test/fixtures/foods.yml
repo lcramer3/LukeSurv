@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  category_id: 
+  category_id: 1
 
 two:
   name: MyString
-  category_id: 
+  category_id: 1

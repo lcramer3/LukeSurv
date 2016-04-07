@@ -3,6 +3,11 @@ require 'test_helper'
 class FoodRanksControllerTest < ActionController::TestCase
   setup do
     @food_rank = food_ranks(:one)
+    @update = {
+      rank: 1,
+      user_id: 1,
+      food_id: 1
+    }
   end
 
   test "should get index" do
@@ -18,7 +23,7 @@ class FoodRanksControllerTest < ActionController::TestCase
 
   test "should create food_rank" do
     assert_difference('FoodRank.count') do
-      post :create, food_rank: { rank: @food_rank.rank }
+      post :create, food_rank: @update
     end
 
     assert_redirected_to food_rank_path(assigns(:food_rank))
@@ -35,7 +40,7 @@ class FoodRanksControllerTest < ActionController::TestCase
   end
 
   test "should update food_rank" do
-    patch :update, id: @food_rank, food_rank: { rank: @food_rank.rank }
+    patch :update, id: @food_rank, food_rank: @update
     assert_redirected_to food_rank_path(assigns(:food_rank))
   end
 

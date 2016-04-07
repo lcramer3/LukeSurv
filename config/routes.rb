@@ -1,15 +1,20 @@
 Rails.application.routes.draw do
+
+  root    'users#new'
+
   resources :food_ranks
 
-  resources :vas_questions
+#  resources :vas_questions
 
-  resources :vas_responses
+#  resources :vas_responses
 
   resources :users
 
-  resources :foods
+#  resources :foods
 
   resources :categories
+
+# mount Rapidfire::Engine => "/rapidfire"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

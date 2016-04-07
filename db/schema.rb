@@ -21,9 +21,16 @@ ActiveRecord::Schema.define(version: 20160311101227) do
 
   create_table "food_ranks", force: :cascade do |t|
     t.integer  "rank"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "food_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  add_index "food_ranks", ["category_id"], name: "index_food_ranks_on_category_id"
+  add_index "food_ranks", ["food_id"], name: "index_food_ranks_on_food_id"
+  add_index "food_ranks", ["user_id"], name: "index_food_ranks_on_user_id"
 
   create_table "foods", force: :cascade do |t|
     t.string   "name"
@@ -49,11 +56,8 @@ ActiveRecord::Schema.define(version: 20160311101227) do
 
   create_table "vas_responses", force: :cascade do |t|
     t.integer  "value"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "vas_responses", ["user_id"], name: "index_vas_responses_on_user_id"
 
 end

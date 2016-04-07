@@ -3,6 +3,10 @@ require 'test_helper'
 class VasResponsesControllerTest < ActionController::TestCase
   setup do
     @vas_response = vas_responses(:one)
+    @update = {
+      value: 100,
+      user_id: 1
+    }
   end
 
   test "should get index" do
@@ -18,7 +22,7 @@ class VasResponsesControllerTest < ActionController::TestCase
 
   test "should create vas_response" do
     assert_difference('VasResponse.count') do
-      post :create, vas_response: { user_id: @vas_response.user_id, value: @vas_response.value }
+      post :create, vas_response: @update
     end
 
     assert_redirected_to vas_response_path(assigns(:vas_response))
@@ -35,7 +39,7 @@ class VasResponsesControllerTest < ActionController::TestCase
   end
 
   test "should update vas_response" do
-    patch :update, id: @vas_response, vas_response: { user_id: @vas_response.user_id, value: @vas_response.value }
+    patch :update, id: @vas_response, vas_response: @update
     assert_redirected_to vas_response_path(assigns(:vas_response))
   end
 

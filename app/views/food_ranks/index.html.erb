@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>User</th>
       <th>Rank</th>
       <th colspan="3"></th>
     </tr>
@@ -13,6 +14,7 @@
   <tbody>
     <% @food_ranks.each do |food_rank| %>
       <tr>
+        <td><%= food_rank.user.name %></td>
         <td><%= food_rank.rank %></td>
         <td><%= link_to 'Show', food_rank %></td>
         <td><%= link_to 'Edit', edit_food_rank_path(food_rank) %></td>

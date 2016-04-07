@@ -3,6 +3,10 @@ require 'test_helper'
 class FoodsControllerTest < ActionController::TestCase
   setup do
     @food = foods(:one)
+    @update = {
+      name: 'Test Food',
+      category_id: 1
+    }
   end
 
   test "should get index" do
@@ -18,7 +22,7 @@ class FoodsControllerTest < ActionController::TestCase
 
   test "should create food" do
     assert_difference('Food.count') do
-      post :create, food: { category_id: @food.category_id, name: @food.name }
+      post :create, food: @update
     end
 
     assert_redirected_to food_path(assigns(:food))
@@ -35,7 +39,7 @@ class FoodsControllerTest < ActionController::TestCase
   end
 
   test "should update food" do
-    patch :update, id: @food, food: { category_id: @food.category_id, name: @food.name }
+    patch :update, id: @food, food: @update
     assert_redirected_to food_path(assigns(:food))
   end
 
