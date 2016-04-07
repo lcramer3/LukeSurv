@@ -4,5 +4,5 @@
   <strong>Name:</strong>
   <%= @user.name %>
 </p>
-
-<%= link_to 'Next to pick categories', categories_url %>
+<% FoodRank.new(user_id: @user.id).save %>
+<%= link_to 'Next to pick categories (START SURVEY)', pick_category_url(@user.id) %>

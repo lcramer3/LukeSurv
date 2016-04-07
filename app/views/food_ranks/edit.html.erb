@@ -1,6 +1,42 @@
-<h1>Editing Food Rank</h1>
+<h1>Picking Categories </h1>
+<%= form_for(@food_rank) do |f| %>
+  <% if @food_rank.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@food_rank.errors.count, "error") %> prohibited this food_rank from being saved:</h2>
+      <ul>
+      <% @food_rank.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= render 'form' %>
+  <div class="field">
 
-<%= link_to 'Show', @food_rank %> |
-<%= link_to 'Back', food_ranks_path %>
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Pick Category</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @categories.each do |category| %>
+          <tr>
+
+          <td><%= f.check_box :category_id %></td>  <td><%= category.name %></td>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
+  </div>
+  <div class="actions">
+    <%= f.submit 'Next to Food Ranks' %>
+  </div>
+<% end %>

@@ -19,6 +19,7 @@ class FoodRanksController < ApplicationController
 
   # GET /food_ranks/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /food_ranks
@@ -69,6 +70,6 @@ class FoodRanksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def food_rank_params
-      params.require(:food_rank).permit(:rank)
+      params.require(:food_rank).permit(:rank, :user_id, :category_id, :food_id)
     end
 end

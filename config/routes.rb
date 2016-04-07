@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  get '/food_ranks/new/:id' => 'food_ranks#edit', as: :pick_category
+
 # mount Rapidfire::Engine => "/rapidfire"
 
   # The priority is based upon order of creation: first created -> highest priority.
